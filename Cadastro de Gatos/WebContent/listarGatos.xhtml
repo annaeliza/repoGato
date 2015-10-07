@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Lista de Gatos</title>
+</h:head>
+<h:body>
+
+<h3>Lista de Gatos</h3>
+
+<h:form>
+	<h:dataTable border="1" value="#{gatoBean.gatos}" var="gato">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome:" />
+				</f:facet>
+				<h:outputText value="#{gato.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Raça:" />
+				</f:facet>
+				<h:outputText value="#{gato.raca}" />
+			</h:column>
+			
+			<h:column>
+			<f:facet name="header">
+					<h:outputText value="Alterar" />
+				</f:facet>
+				<h:commandButton action="#{gatoBean.editar(gato.id)}" value="Editar"/>
+			</h:column>
+			<h:column>
+			<f:facet name="header">
+					<h:outputText value="Excluir" />
+				</f:facet>
+				<h:commandButton action="#{gatoBean.excluir(gato.id)}" value="Excluir"/>
+			</h:column>
+	</h:dataTable>
+	
+		<h:commandLink value="Cadastrar outro Gato" action="cadastroGatos.xhtml"/>
+
+
+</h:form>
+
+</h:body>
+</html>
